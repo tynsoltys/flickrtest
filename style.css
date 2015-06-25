@@ -126,3 +126,56 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 * {
   box-sizing: border-box; }
+
+body {
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-size: 16px;
+  padding: 0;
+  margin: 0; }
+
+.main {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap; }
+
+nav {
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 40px;
+  background-color: #fff; }
+
+aside {
+  width: 20%;
+  height: calc(100vh - 40px);
+  background-color: #454D56; }
+
+#gallery {
+  background-color: #FFD03A;
+  width: 80%; }
+  #gallery .imageContainer {
+    width: 80%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap; }
+  #gallery .galleryImage {
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    width: 33%; }
+
+h1 {
+  padding: 0;
+  margin: 0;
+  line-height: 40px;
+  font-size: 22px; }
+  h1 a {
+    text-decoration: none;
+    color: #1d1d1d; }
+    h1 a span {
+      font-weight: normal; }

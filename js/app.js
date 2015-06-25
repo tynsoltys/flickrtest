@@ -21,7 +21,10 @@ app.getImages = function(query) {
 	       		console.log(res.photos.photo);
 	       		$.each(res.photos.photo, function(i, item) {
 	       		var image = item;
-	       			console.log(image);
+	       			var urlDefault = 'https://farm' + image.farm + '.staticflickr.com/' + image.server + '/' + image.id + '_' + image.secret + '.jpg';
+	       			console.log(urlDefault);
+	       			var photoTitle = image.title;
+	       			$('.imageContainer').append('<img class="galleryImage" src="'+ urlDefault +' alt="'+ photoTitle +'" title="'+ photoTitle +'"/><p class="caption">'+ photoTitle +'</p>');
 	       		});
 	       }
 	}); 
