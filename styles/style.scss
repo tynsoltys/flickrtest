@@ -25,15 +25,20 @@ body {
 }
 
 nav {
-	max-width: 1000px;
 	margin: 0 auto;
-	height: 40px;
 	background-color: #fff;
+	h1{
+		padding: 10px;
+		padding-left: 35px;
+		margin: 5px;
+	}
 }
 
 aside {
+	color:#fff;
 	width: 20%;
-	height: calc(100vh - 40px);
+	padding-left: 40px;
+	// height: calc(100vh - 40px);
 	background-color: $gray;
 }
 
@@ -41,13 +46,13 @@ aside {
 	background-color: $yell;
 	width:80%;
 	.imageContainer{
-		width: 80%;
-		display: flex;
-		flex-flow: row wrap;
+		
 	}
-	.galleryImage {
-		flex:1 0 auto;
-		width: 33%;
+	.galleryItem {
+		background-size: cover;
+		background-position: center center;
+		height:200px;
+		width:300px;
 	}
 }
 

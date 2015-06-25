@@ -19,10 +19,11 @@
 	<div class="main">
 		<aside>
 			<h3>Sort:</h3>
-			<form action="">
-				<input type="search">
-				<input type="submit">
-			</form>
+				<div class="button-group sort-by-button-group">
+				  <button data-sort-by="original-order">all</button>
+				  <button data-sort-by="name">name</button>
+				  <button data-sort-by="number">number</button>
+				</div>
 		</aside>
 		<section id="gallery">
 			<div class="imageContainer">
@@ -36,6 +37,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <script src="js/app.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.0/isotope.pkgd.min.js"></script>
+
 <script src="js/main.js"></script>
 
 </html>

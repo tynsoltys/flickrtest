@@ -24,7 +24,26 @@ app.getImages = function(query) {
 	       			var urlDefault = 'https://farm' + image.farm + '.staticflickr.com/' + image.server + '/' + image.id + '_' + image.secret + '.jpg';
 	       			console.log(urlDefault);
 	       			var photoTitle = image.title;
-	       			$('.imageContainer').append('<img class="galleryImage" src="'+ urlDefault +' alt="'+ photoTitle +'" title="'+ photoTitle +'"/><p class="caption">'+ photoTitle +'</p>');
+	       			var photoNumber = image.id;
+	       			$('.imageContainer').append('<div class="galleryItem" data-name="' + photoTitle + '" data-number="' + photoNumber + '" style="background-image:url(' + urlDefault + ');"><p class="caption">'+ photoTitle +'</p>');
+	       		});
+	       		$('.imageContainer').isotope({
+	       		  // options
+	       		  itemSelector: '.galleryItem',
+	       		  layoutMode: 'fitRows',
+	       		  getSortData: {
+	       		    name: '[data-name]', // text from querySelector
+	       		    number: '[data-number]' // value of attribute
+	       		  },
+	       		  sortBy: [ 'name', 'number' ],
+	       		  sortAscending: {
+	       		    name: true,
+	       		    number: true
+	       		  }
+	       		});
+	       		$('.sort-by-button-group').on( 'click', 'button', function() {
+	       		  var sortByValue = $(this).attr('data-sort-by');
+	       		  $('.imageContainer').isotope({ sortBy: sortByValue });
 	       		});
 	       }
 	}); 
