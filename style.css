@@ -220,10 +220,12 @@ button {
   -ms-flex: 1 0 80%;
   flex: 1 0 80%;
   background-color: #FFD03A;
-  position: relative; }
+  position: relative;
+  text-align: center; }
   #gallery .imageContainer {
     display: block;
     padding: 30px;
+    padding-right: 10px;
     margin: 0 auto; }
     @media (max-width: 445px) {
       #gallery .imageContainer {
@@ -239,8 +241,8 @@ button {
     margin: 5px; }
     @media (max-width: 900px) {
       #gallery a {
-        height: 150px;
-        width: 170px;
+        height: 250px;
+        width: 370px;
         padding-bottom: 15px; } }
     @media (max-width: 445px) {
       #gallery a {
@@ -271,6 +273,7 @@ button {
           color: rgba(0, 0, 0, 0.7); }
         @media (max-width: 900px) {
           #gallery a .galleryItem p {
+            opacity: 1;
             display: block !important;
             background-color: white;
             font-size: 10px;

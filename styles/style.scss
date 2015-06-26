@@ -116,9 +116,11 @@ button {
 	flex: 1 0 80%;
 	background-color: $yell;
 	position: relative;
+	text-align: center;
 	.imageContainer{
 		display: block;
 		padding: 30px;
+		padding-right: 10px;
 		margin:0 auto;
 		@media (max-width:445px) {
 			padding:10px;
@@ -134,8 +136,8 @@ button {
 		float: left;
 		margin: 5px;
 		@media (max-width:900px) {
-			height:150px;
-			width:170px;
+			height:250px;
+			width:370px;
 			padding-bottom: 15px;
 		}
 		@media (max-width:445px) {
@@ -168,10 +170,11 @@ button {
 					color:rgba(0,0,0,0.7);
 				}
 				@media (max-width:900px) {
-					 display:block !important;
-					 background-color: rgba(255,255,255,1);
-					 font-size: 10px;
-					 bottom:-15px;
+					opacity:1;
+					display:block !important;
+					background-color: rgba(255,255,255,1);
+					font-size: 10px;
+					bottom:-15px;
 					height:15px;
 					line-height: 15px;
 					padding-left: 5px;
