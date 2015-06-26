@@ -26,11 +26,10 @@ app.getImages = function(query) {
 	   			var photoTitle = image.title;
 	   			var photoNumber = image.id;
 	   			$('.imageContainer').append('<a href="#" class="thumbLink" data-name="' + photoTitle + '" data-number="' + photoNumber + '" data-large="' + srcLarge + '" ><div class="galleryItem" data-name="' + photoTitle + '" data-number="' + photoNumber + '" data-large="' + srcLarge + '" style="background-image:url(' + urlDefault + ');"><p class="caption">'+ photoTitle +'</p></div></a>');
-	       		});
-
+	       	});
        		// Initiate Display Functions
-       		app.isotope();
-       		app.fancy();
+	   		app.isotope();
+	   		app.fancy();
        	}
 	}); 
 }
@@ -39,18 +38,18 @@ app.getImages = function(query) {
 
 app.isotope = function() {
 	$('.imageContainer').isotope({
-	  // options for isotope
-	  itemSelector: '.thumbLink',
-	  layoutMode: 'fitRows',
-	  getSortData: {
-	    name: '[data-name]', // text from querySelector
-	    number: '[data-number]' // value of attribute
-	  },
-	  sortBy: [ 'name', 'number' ],
-	  sortAscending: {
-	    name: true,
-	    number: true
-	 }
+		// options for isotope
+		itemSelector: '.thumbLink',
+		layoutMode: 'fitRows',
+		getSortData: {
+		    name: '[data-name]', // text from querySelector
+		    number: '[data-number]' // value of attribute
+		},
+		sortBy: [ 'name', 'number' ],
+		sortAscending: {
+		    name: true,
+		    number: true
+		}
 	});
 	// Buttons for sorting
 	$('.sort-by-button-group').on( 'click', 'button', function() {
