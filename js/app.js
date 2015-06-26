@@ -24,11 +24,11 @@ app.getImages = function(query) {
 	       			var urlDefault = 'https://farm' + image.farm + '.staticflickr.com/' + image.server + '/' + image.id + '_' + image.secret + '.jpg';
 	       			var photoTitle = image.title;
 	       			var photoNumber = image.id;
-	       			$('.imageContainer').append('<a href="#" class="thumbLink"><div class="galleryItem" data-name="' + photoTitle + '" data-number="' + photoNumber + '" data-large="' + 'https://farm' + image.farm + '.staticflickr.com/' + image.server + '/' + image.id + '_' + image.secret + '_b.jpg'+ '" style="background-image:url(' + urlDefault + ');"></div><p class="caption">'+ photoTitle +'</p></a>');
+	       			$('.imageContainer').append('<a href="#" class="thumbLink" data-name="' + photoTitle + '" data-number="' + photoNumber + '" data-large="' + 'https://farm' + image.farm + '.staticflickr.com/' + image.server + '/' + image.id + '_' + image.secret + '_b.jpg'+ '" ><div class="galleryItem" data-name="' + photoTitle + '" data-number="' + photoNumber + '" data-large="' + 'https://farm' + image.farm + '.staticflickr.com/' + image.server + '/' + image.id + '_' + image.secret + '_b.jpg'+ '" style="background-image:url(' + urlDefault + ');"><p class="caption">'+ photoTitle +'</p></div></a>');
 	       		});
 	       		$('.imageContainer').isotope({
 	       		  // options for isotope
-	       		  itemSelector: '.galleryItem',
+	       		  itemSelector: '.thumbLink',
 	       		  layoutMode: 'fitRows',
 	       		  getSortData: {
 	       		    name: '[data-name]', // text from querySelector
@@ -57,12 +57,13 @@ app.getImages = function(query) {
 
 app.fancy = function() {
 	$(".galleryItem").on("click", function(){
+		var name = $(this).data('name');
 		var srcLarge = $(this).data('large');
-		$('.imageContainer').append('<a href="#" class="fancy"><div class="fancyOverlay"><img src="' + srcLarge + '"></div></a>');
+		$('.main').append('<a href="#" class="fancy"><div class="fancyOverlay"><img src="' + srcLarge + '"></div></a>');
 		// $('.galleryItem').addClass('selected');
 		$('a.fancy').on("click", function(e){
 			e.preventDefault();
-			$('.imageContainer a.fancy').css('display','none');
+			$('.main a.fancy').css('display','none');
 		});
 	});
 }
@@ -74,11 +75,11 @@ app.info = function() {
 	// 	$(this).children('p').fadeIn('visible');
 	// });
 
-	$("a.thumbLink").on("mouseover",function(){
-		$(this).children('p').fadeIn();
+	$(".galleryItem").on("mouseover",function(){
+		$(this).children('p.caption').fadeIn();
 	});
-	$("a.thumbLink").on("mouseleave",function(){
-		$(this).children('p').fadeOut();
+	$(".galleryItem").on("mouseleave",function(){
+		$(this).children('p.caption').fadeOut();
 	});
 	
 };

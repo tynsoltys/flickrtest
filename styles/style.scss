@@ -24,11 +24,15 @@ body {
 	margin: 0;
 }
 
+// Major Section Structural Style
+
 .main {
-	display: flex;
+	display:flex;
 	flex-flow: row wrap;
 	position:relative;
-	// height:100vh;
+	@media (min-width:1640px){
+		height: calc(100vh - 60px);
+	}
 }
 
 nav {
@@ -38,6 +42,9 @@ nav {
 		padding: 10px;
 		padding-left: 35px;
 		margin: 5px;
+		@media (max-width:445px) {
+			padding-left:10px;
+		}
 	}
 }
 
@@ -45,10 +52,25 @@ nav {
 
 aside {
 	color:#fff;
-	width: 20%;
+	flex:1 0 20%;
+	min-width:200px;
 	padding:40px;
-	// height: calc(100vh - 40px);
 	background-color: $gray;
+	@media (max-width:900px) {
+		flex: 1 0 100%;
+		padding: 10px 40px;
+		h3 {
+			width:50px;
+			float: left;
+		}
+		.button-group {
+			float: left;
+			padding-top: 5px;
+		}
+	}
+	@media (max-width:445px) {
+		padding-left:20px;
+	}
 }
 
 button {
@@ -58,6 +80,7 @@ button {
 	box-shadow: none;
 	transition: all 0.3s;
 	padding:10px;
+	margin:5px 5px 5px 0px;
 	&:hover, &:focus{
 		border:2px solid #fff;
 		color:#000;
@@ -73,10 +96,11 @@ h1 {
 	margin: 0;
 	line-height: 40px;
 	font-size: 22px;
+	width: 300px;
 	a {
 		text-decoration: none;
 		color:#1d1d1d;
-		span {
+		span.ibm {
 			font-weight: normal;
 		}
 	}
@@ -90,47 +114,71 @@ h3 {
 //Gallery Styles
 
 #gallery {
+	flex: 1 0 80%;
 	background-color: $yell;
-	width:80%;
 	position: relative;
 	.imageContainer{
-		padding:10px;
+		display: block;
+		padding: 30px;
 		margin:0 auto;
+		@media (max-width:445px) {
+			padding:10px;
+		}
 	}
 	a {
 		display: block;
 		color:#000;
 		text-decoration: none;
 		cursor: cell;
-	}
-	.galleryItem {
-		margin:10px;
-		background-size: cover;
-		background-position: center center;
 		height:200px;
 		width:300px;
-		position: relative;
+		float: left;
+		margin: 5px;
+		@media (max-width:900px) {
+			height:150px;
+			width:170px;
+			padding-bottom: 15px;
+		}
+		@media (max-width:445px) {
+			height:230px;
+			width:300px;
+		}
+		.galleryItem {
+			background-size: cover;
+			background-position: center center;
+			height:100%;
+			width:100%;
+			position: relative;
+			p {
+					display:none;
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					width: 100%;
+					background-color: rgba(255,255,255,0.8);
+					height: 50px;
+					line-height: 50px;
+					margin: 0;
+					padding: 0px 20px;
+					&:before {
+						content:"File: ";
+						color:rgba(0,0,0,0.7);
+					}
+					@media (max-width:900px) {
+						 display:block !important;
+						 background-color: rgba(255,255,255,1);
+						 font-size: 10px;
+						 bottom:-15px;
+						height:15px;
+						line-height: 15px;
+						padding-left: 5px;
+						}
+				}
+		}
 	}
 }
 
 // info overlay styles 	
-
-	.thumbLink p {
-		display:none;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		background-color: rgba(255,255,255,0.8);
-		height: 50px;
-		line-height: 50px;
-		margin: 0;
-		padding: 0px 20px;
-		&:before {
-			content:"File: ";
-			color:rgba(0,0,0,0.7);
-		}
-	}
 
 //fancybox styles
 
@@ -145,11 +193,12 @@ h3 {
 	z-index:1000;
 	display: flex;
 	a{
+		display: block;
 		cursor: url(img/x.png), auto;
 	}
 	img {
-		max-width: 50%;
-		flex: 1 0 auto;
+		max-width: 70%;
+		height:auto !important;
 		margin: auto;
 		border:10px solid #fff;
 	}
