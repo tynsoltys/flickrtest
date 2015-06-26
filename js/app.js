@@ -3,9 +3,6 @@
 
 var app = {};
 
-// var app.apiKey = "a5e95177da353f58113fd60296e1d250";
-// var app.userId = "132365033@N08";
-
 app.getImages = function(query) {
 	$.ajax({
         url: 'https://api.flickr.com/services/rest/?method=flickr.people.getPublicPhotos',
