@@ -18,17 +18,16 @@ app.getImages = function(query) {
 	        		nojsoncallback: 1
 	        },
 	       	success: function(res) {
-	       		console.log(res.photos.photo);
+	       		var largeImage = res.photos;
 	       		$.each(res.photos.photo, function(i, item) {
 	       		var image = item;
 	       			var urlDefault = 'https://farm' + image.farm + '.staticflickr.com/' + image.server + '/' + image.id + '_' + image.secret + '.jpg';
-	       			console.log(urlDefault);
 	       			var photoTitle = image.title;
 	       			var photoNumber = image.id;
-	       			$('.imageContainer').append('<div class="galleryItem" data-name="' + photoTitle + '" data-number="' + photoNumber + '" style="background-image:url(' + urlDefault + ');"><p class="caption">'+ photoTitle +'</p>');
+	       			$('.imageContainer').append('<a href="#" class="thumbLink"><div class="galleryItem" data-name="' + photoTitle + '" data-number="' + photoNumber + '" data-large="' + 'https://farm' + image.farm + '.staticflickr.com/' + image.server + '/' + image.id + '_' + image.secret + '_b.jpg'+ '" style="background-image:url(' + urlDefault + ');"></div><p class="caption">'+ photoTitle +'</p></a>');
 	       		});
 	       		$('.imageContainer').isotope({
-	       		  // options
+	       		  // options for isotope
 	       		  itemSelector: '.galleryItem',
 	       		  layoutMode: 'fitRows',
 	       		  getSortData: {
@@ -41,19 +40,48 @@ app.getImages = function(query) {
 	       		    number: true
 	       		  }
 	       		});
+	       		// Buttons for sorting
 	       		$('.sort-by-button-group').on( 'click', 'button', function() {
 	       		  var sortByValue = $(this).attr('data-sort-by');
 	       		  $('.imageContainer').isotope({ sortBy: sortByValue });
 	       		});
+	       		// Fancybox
+	       		app.fancy();
+	       		app.info();
 	       }
 	}); 
 }
 
-// app.displayImages = function()
+// FANCYBOX
 
 
+app.fancy = function() {
+	$(".galleryItem").on("click", function(){
+		var srcLarge = $(this).data('large');
+		$('.imageContainer').append('<a href="#" class="fancy"><div class="fancyOverlay"><img src="' + srcLarge + '"></div></a>');
+		// $('.galleryItem').addClass('selected');
+		$('a.fancy').on("click", function(e){
+			e.preventDefault();
+			$('.imageContainer a.fancy').css('display','none');
+		});
+	});
+}
 
+// // OTHER ANIMATIONS
 
+app.info = function() {
+	// $(".imageContainer a").on("hover", function(){
+	// 	$(this).children('p').fadeIn('visible');
+	// });
+
+	$("a.thumbLink").on("mouseover",function(){
+		$(this).children('p').fadeIn();
+	});
+	$("a.thumbLink").on("mouseleave",function(){
+		$(this).children('p').fadeOut();
+	});
+	
+};
 
 // // // //
 //  INIT //

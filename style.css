@@ -128,6 +128,10 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 * {
   box-sizing: border-box; }
 
+html {
+  margin: 0;
+  padding: 0; }
+
 body {
   font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
   font-size: 16px;
@@ -140,7 +144,8 @@ body {
   display: flex;
   -webkit-flex-flow: row wrap;
   -ms-flex-flow: row wrap;
-  flex-flow: row wrap; }
+  flex-flow: row wrap;
+  position: relative; }
 
 nav {
   margin: 0 auto;
@@ -153,17 +158,21 @@ nav {
 aside {
   color: #fff;
   width: 20%;
-  padding-left: 40px;
+  padding: 40px;
   background-color: #454D56; }
 
-#gallery {
-  background-color: #FFD03A;
-  width: 80%; }
-  #gallery .galleryItem {
-    background-size: cover;
-    background-position: center center;
-    height: 200px;
-    width: 300px; }
+button {
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: transparent;
+  box-shadow: none;
+  transition: all 0.3s;
+  padding: 10px; }
+  button:hover, button:focus {
+    border: 2px solid #fff;
+    color: #000;
+    background-color: #fff;
+    outline: none; }
 
 h1 {
   padding: 0;
@@ -175,3 +184,63 @@ h1 {
     color: #1d1d1d; }
     h1 a span {
       font-weight: normal; }
+
+h3 {
+  font-weight: normal; }
+
+#gallery {
+  background-color: #FFD03A;
+  width: 80%;
+  position: relative; }
+  #gallery .imageContainer {
+    padding: 10px;
+    margin: 0 auto; }
+  #gallery a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+    cursor: cell; }
+  #gallery .galleryItem {
+    margin: 10px;
+    background-size: cover;
+    background-position: center center;
+    height: 200px;
+    width: 300px;
+    position: relative; }
+
+.thumbLink p {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 50px;
+  line-height: 50px;
+  margin: 0;
+  padding: 0px 20px; }
+  .thumbLink p:before {
+    content: "File: ";
+    color: rgba(0, 0, 0, 0.7); }
+
+.fancyOverlay {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .fancyOverlay a {
+    cursor: url(img/x.png), auto; }
+  .fancyOverlay img {
+    max-width: 50%;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    margin: auto;
+    border: 10px solid #fff; }
