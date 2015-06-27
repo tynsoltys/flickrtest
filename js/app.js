@@ -39,8 +39,8 @@ app.isotope = function() {
 		itemSelector: '.thumbLink',
 		layoutMode: 'fitRows',
 		getSortData: {
-		    name: '[data-name]', // text from querySelector
-		    number: '[data-number]' // value of attribute
+		    name: '[data-name]', 
+		    number: '[data-number]' 
 		},
 		sortBy: [ 'name', 'number' ],
 		sortAscending: {
